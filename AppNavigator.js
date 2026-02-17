@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import analytics from "@react-native-firebase/analytics";
 import { useNavigationContainerRef } from "expo-router";
-
 import HomeScreen from "./screens/HomeScreen";
 import Ranking from "./app/components/Ranking";
 import ContinentLeagues from "./screens/ContinentLeagues";
@@ -16,7 +15,6 @@ const Stack = createNativeStackNavigator();
 export default function AppNavigator() {
   const navigationRef = useNavigationContainerRef();
   const routeNameRef = useRef();
-
   return (
     <Stack.Navigator
       initialRouteName="Home"

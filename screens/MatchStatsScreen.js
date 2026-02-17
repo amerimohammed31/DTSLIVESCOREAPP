@@ -7,50 +7,27 @@ export default function MatchStatsScreen({ route, navigation }) {
 
   if (!selectedMatch) return null;
 
-  const defaultLineupData = {
-    leagueName: "",
-    leagueLogo: "",
-    home: {
-      formation: "4-4-3",
-      coach: "",
-      players: [],
-      stats: {
-        possession: 50,
-        shots: 0,
-        shotsOnTarget: 0,
-        fouls: 0,
-        corners: 0,
-      },
-    },
-    away: {
-      formation: "4-4-3",
-      coach: "",
-      players: [],
-      stats: {
-        possession: 50,
-        shots: 0,
-        shotsOnTarget: 0,
-        fouls: 0,
-        corners: 0,
-      },
-    },
-  };
-
   const homeTeam = {
     name: selectedMatch.name_team_left,
-    ...(selectedMatch.matchData?.home || defaultLineupData.home),
+    formation: selectedMatch.matchData?.home?.formation || "",
+    coach: selectedMatch.matchData?.home?.coach || "",
+    players: selectedMatch.matchData?.home?.players || [],
+    stats: selectedMatch.matchData?.home?.stats || {},
   };
 
   const awayTeam = {
     name: selectedMatch.name_team_right,
-    ...(selectedMatch.matchData?.away || defaultLineupData.away),
+    formation: selectedMatch.matchData?.away?.formation || "",
+    coach: selectedMatch.matchData?.away?.coach || "",
+    players: selectedMatch.matchData?.away?.players || [],
+    stats: selectedMatch.matchData?.away?.stats || {},
   };
 
-  const leagueLogo =
-    selectedMatch.matchData?.leagueLogo || defaultLineupData.leagueLogo;
-
+  const leagueLogo = selectedMatch.matchData?.leagueLogo || "";
   const leagueName =
-    selectedMatch.matchData?.leagueName || defaultLineupData.leagueName;
+    selectedMatch.matchData?.leagueName ||
+    selectedMatch.leagueName ||
+    "";
 
   return (
     <ScrollView contentContainerStyle={{ padding: 5 }}>

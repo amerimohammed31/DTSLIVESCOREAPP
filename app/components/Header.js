@@ -97,7 +97,6 @@ export default function Header({
 
   return (
     <View style={styles.container}>
-      {/* Header */}
       <View
         style={[
           styles.header,
@@ -124,7 +123,6 @@ export default function Header({
         )}
       </View>
 
-      {/* Menu */}
       {!backButton && (
         <Animated.View
           style={[

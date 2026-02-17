@@ -1,9 +1,7 @@
 import React, { useContext } from "react";
 import { FlatList, View, StyleSheet, Text } from "react-native";
-
 import MatchData from "../app/MatchData";
 import Ranking from "../app/components/Ranking";
-
 import { DataStatusContext } from "../app/context/DataStatusContext";
 
 export default function HomeScreen({ navigation }) {
@@ -19,7 +17,6 @@ export default function HomeScreen({ navigation }) {
       </View>
     );
   }
-
   return (
     <View style={styles.container}>
       <FlatList
@@ -36,7 +33,6 @@ export default function HomeScreen({ navigation }) {
     </View>
   );
 }
-
 const styles = StyleSheet.create({
   container: { flex: 1 },
 

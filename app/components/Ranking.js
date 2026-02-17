@@ -8,8 +8,6 @@ import {
   FlatList,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
-
-// ⭐ اضافة Context
 import { DataStatusContext } from "../context/DataStatusContext";
 
 const CONFIG_URL =
@@ -21,7 +19,6 @@ export default function Ranking({ navigation: propNavigation }) {
 
   const [continents, setContinents] = useState([]);
 
-  // ⭐ Context لتحديث حالة البيانات
   const { setRankingHasData } = useContext(DataStatusContext);
 
   useEffect(() => {
@@ -32,7 +29,6 @@ export default function Ranking({ navigation: propNavigation }) {
         const list = data.CONTINENTS || [];
         setContinents(list);
 
-        // ⭐ تحديث حالة البيانات
         setRankingHasData(list.length > 0);
       } catch (e) {
         setRankingHasData(false);
